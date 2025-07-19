@@ -32,6 +32,13 @@ if hobby.lower() in hobbies:
 else:
     speak("That's interesting! ")
 
-speak("Thank you for sharing! Have a wonderful day ahead!")
+speak("Would you like to restart our conversation? (yes/no)")
 
-# Full Voice Assistant soon
+restart = input(":")
+if restart.lower() not in ["yes", "no"]:
+    speak("Please answer with 'yes' or 'no'.")
+    restart = input(":")
+if restart == "yes":
+    speak("Let's start over then!")
+elif restart == "no":
+    speak("Thank you for sharing! Have a wonderful day ahead!")
