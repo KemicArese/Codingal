@@ -41,7 +41,5 @@ def main():
             speak(f"Thank you for sharing your thoughts {name}! Have a wonderful day ahead!")
             break
 
-    engine.stop()
-
 if __name__ == "__main__":
     main()
