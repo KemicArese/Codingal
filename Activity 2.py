@@ -37,7 +37,7 @@ while True:
     else:
         response = f'{Fore.YELLOW}Your message is neutral.{Style.RESET_ALL}'
     
-    history.append((user_input, response))
+    history.append((user_input, response, sentiment))
     
     print(f'{response}')
     print(f'{Fore.CYAN}📜 Conversation History:{Style.RESET_ALL}')
@@ -51,7 +51,7 @@ while True:
         else:
             color = Fore.YELLOW
             emoji = "😐"
-        print(f'{color}{idx}. {emoji} {text}'  
+        print(f'{color}{idx}. {emoji} {text}  '  
               f'Polarity: {polarity}{Style.RESET_ALL}')
     continue
 
