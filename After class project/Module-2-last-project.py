@@ -1,7 +1,6 @@
 import cv2
 from deepface import DeepFace
 
-# Open webcam
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 cap = cv2.VideoCapture(0)
 
@@ -17,11 +16,9 @@ while True:
         cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
 
     try:
-        # Analyze emotions
         result = DeepFace.analyze(frame, actions=['emotion'], enforce_detection=False)
         dominant = result[0]['dominant_emotion']
 
-        # Show emotion text
         cv2.putText(frame, dominant, (50, 50),
                     cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
@@ -31,7 +28,6 @@ while True:
 
     cv2.imshow("Emotion Detection", frame)
 
-    # Quit with q
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
