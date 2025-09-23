@@ -29,6 +29,18 @@ def apply_filter(image, filter_type):
         canny_edges = cv2.Canny(gray_image, 20, 200)
         filtered_image = cv2.cvtColor(canny_edges, cv2.COLOR_GRAY2BGR)
 
+    elif filter_type == 'laplacian':
+        gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        laplacian = cv2.Laplacian(gray_image, cv2.CV_64F)
+        laplacian = np.uint8(np.clip(laplacian, 0, 255))
+        filtered_image = cv2.cvtColor(laplacian, cv2.COLOR_GRAY2BGR)
+
+    elif filter_type == 'gaussian':
+        filtered_image = cv2.GaussianBlur(image, (5, 5), 0)
+
+    elif filter_type == 'median':
+        filtered_image = cv2.medianBlur(image, 5)
+
     return filtered_image
 
 filter_type = 'original'
@@ -39,6 +51,9 @@ print("g: Green Tint")
 print("b: Blue Tint")
 print("s: Sobel Edge Detection")
 print("c: Canny Edge Detection")
+print("l: Laplacian Edge Detection")
+print("f: Gaussian Filtering")
+print("m: Median Filtering")
 print("o: Original (No Filter)")
 print("q: Quit")
 
@@ -71,6 +86,12 @@ while True:
         filter_type = 'sobel'
     elif key == ord('c'):
         filter_type = 'canny'
+    elif key == ord('l'):
+        filter_type = 'laplacian'
+    elif key == ord('f'):
+        filter_type = 'gaussian'
+    elif key == ord('m'):
+        filter_type = 'median'
     elif key == ord('o'):
         filter_type = 'original'
     elif key == ord('q'):
