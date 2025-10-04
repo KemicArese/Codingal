@@ -32,7 +32,7 @@ def interactive_edge_detection(image_path):
     print("and")
     print("6. Exit")
 
-    if __name__ == "__main__":
+    while True:
         choice = input("Enter your choice (1-6): ")
         if choice == "1":
             sobel_x = cv2.Sobel(gray_image, cv2.CV_64F, 1, 0, ksize=5)
@@ -65,6 +65,8 @@ def interactive_edge_detection(image_path):
             return
     
 
-if __name__ == "__main__":
-    img_pt = input('Enter the full file path: ')
+while True:
+    img_pt = input('Enter the full file path (or type "exit" to quit): ')
+    if img_pt.lower() == "exit":
+        break
     interactive_edge_detection(img_pt)
