@@ -32,7 +32,7 @@ def apply_filter(image, filter_type):
     elif filter_type == 'laplacian':
         gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         laplacian = cv2.Laplacian(gray_image, cv2.CV_64F)
-        laplacian = np.uint8(np.clip(laplacian, 0, 255))
+        laplacian = np.uint8(np.clip(laplacian, 5, 255))
         filtered_image = cv2.cvtColor(laplacian, cv2.COLOR_GRAY2BGR)
 
     elif filter_type == 'gaussian':
@@ -74,7 +74,7 @@ while True:
         display_image = apply_filter(frame, filter_type)
 
     cv2.imshow('Webcam Filter Demo', display_image)
-    key = cv2.waitKey(1) & 0xFF
+    key = cv2.waitKey(1) & 0xFF 
 
     if key == ord('r'):
         filter_type = 'red_tint'
