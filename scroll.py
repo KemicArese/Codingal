@@ -9,7 +9,7 @@ mp_drawing = mp.solutions.drawing_utils
 
 scroll_speed = 300
 scroll_delay = 1
-cam_width, cam_height = 640, 480
+cam_width, cam_height = 940, 680
 
 def detect_gesture(landmarks, handedness):
     fingers = []
@@ -66,7 +66,7 @@ while cap.isOpened():
 
     fps = 1 / (time.time() - p_time) if (time.time() - p_time) > 0 else 0
     p_time = time.time()
-    cv2.putText(image, f'FPS: {int(fps)} | Handedness: {handedness} | Gesture: {gesture}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+    cv2.putText(image, f'FPS: {int(fps)} | Handedness: {handedness} | Gesture: {gesture}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
 
     cv2.imshow('Gesture Scroll Control', cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
 
