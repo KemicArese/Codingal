@@ -32,10 +32,6 @@ def interactive_edge_detection(image_path):
     print("and")
     print("6. Exit")
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 32085ee70d51196c5816b7041b764553af330578
     if __name__ == "__main__":
         choice = input("Enter your choice (1-6): ")
         if choice == "1":
